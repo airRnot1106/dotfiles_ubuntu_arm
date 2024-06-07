@@ -64,6 +64,9 @@ return {
                 mappings = {
                     go_in_plus = "<CR>",
                 },
+                windows = {
+                    preview = true,
+                },
             }
         end,
     },
@@ -73,6 +76,28 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("mini.jump2d").setup()
+        end,
+    },
+    {
+        "echasnovski/mini.cursorword",
+        version = false,
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("mini.cursorword").setup()
+        end,
+    },
+    {
+        "echasnovski/mini.splitjoin",
+        version = false,
+        config = function()
+            require("mini.splitjoin").setup()
+        end,
+    },
+    {
+        "echasnovski/mini.trailspace",
+        version = false,
+        config = function()
+            require("mini.trailspace").setup()
         end,
     },
 }

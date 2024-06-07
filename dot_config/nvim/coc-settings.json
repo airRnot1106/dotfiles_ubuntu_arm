@@ -1,4 +1,8 @@
 {
+  "suggest.autoTrigger": "always",
+  "suggest.insertMode": "insert",
+  "signature.enable": false,
+  "signature.target": "float",
   "coc.preferences.formatOnSave": true,
   "Lua.workspace.library": [
     "${3rd}/luv/library"
@@ -6,21 +10,6 @@
   "sumneko-lua.enableNvimLuaDev": true,
   "ruff.autoFixOnSave": true,
   "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json"
-      ],
-      "filetypes": [
-        "c",
-        "cc",
-        "cpp",
-        "c++",
-        "objc",
-        "objcpp"
-      ]
-    },
     "gleam": {
       "command": "gleam",
       "args": [

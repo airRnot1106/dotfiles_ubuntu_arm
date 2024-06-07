@@ -5,7 +5,8 @@ return {
         build = "coc#util#install",
         event = { "BufReadPre", "BufNewFile" },
         config = function()
-            -- -- coc default settings
+            -- https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.lua
+
             -- Some servers have issues with backup files, see #649
             vim.opt.backup = false
             vim.opt.writebackup = false
@@ -86,11 +87,11 @@ return {
             })
 
             -- Symbol renaming
-            keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
+            keyset("n", "<F2>", "<Plug>(coc-rename)", { silent = true })
 
-            -- -- Formatting selected code
-            -- keyset("x", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
-            -- keyset("n", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
+            -- Formatting selected code
+            keyset("x", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
+            keyset("n", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
 
             -- Setup formatexpr specified filetype(s)
             vim.api.nvim_create_autocmd("FileType", {
@@ -175,9 +176,9 @@ return {
 
             -- Mappings for CoCList
             -- code actions and coc stuff
-            -- ---@diagnostic disable-next-line: redefined-local
-            -- local opts = { silent = true, nowait = true }
-            -- -- Show all diagnostics
+            ---@diagnostic disable-next-line: redefined-local
+            local opts = { silent = true, nowait = true }
+            -- Show all diagnostics
             -- keyset("n", "<space>a", ":<C-u>CocList diagnostics<cr>", opts)
             -- -- Manage extensions
             -- keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
@@ -193,22 +194,6 @@ return {
             -- keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
             -- -- Resume latest coc list
             -- keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
-            -- -- end
-
-            local keymap = vim.api.nvim_set_keymap
-            keymap(
-                "i",
-                "<CR>",
-                'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><C-r>=coc#on_enter()<CR>"',
-                { expr = true, noremap = true, silent = true }
-            )
-            keymap(
-                "i",
-                "<Esc>",
-                'coc#pum#visible() ? coc#pum#cancel() : "<Esc>"',
-                { expr = true, noremap = true, silent = true }
-            )
-            keymap("n", "<Leader>.", "<Plug>(coc-codeaction-cursor)", { noremap = true, silent = true })
         end,
     },
 }
